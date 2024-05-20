@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://buc8j2lr6ugtm"]
+
+[ext_resource type="Script" path="res://scripts/you_lost.gd" id="1_hd6wt"]
+
+[node name="YouLost" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_hd6wt")
+
+[node name="RetryButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 683.0
+offset_top = 335.0
+offset_right = 803.0
+offset_bottom = 395.0
+text = "Retry"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 337.0
+offset_top = 72.0
+offset_right = 856.0
+offset_bottom = 283.0
+text = "You lost!"
+horizontal_alignment = 1
+
+[node name="MainButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 335.0
+offset_right = 500.0
+offset_bottom = 395.0
+text = "Main Menü"
+
+[connection signal="button_down" from="RetryButton" to="." method="_on_retry_button_button_down"]
+[connection signal="button_down" from="MainButton" to="." method="_on_main_button_button_down"]

@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://orku8yqg0tgc"]
+
+[sub_resource type="GDScript" id="GDScript_rlsei"]
+script/source = "
+extends Node2D
+
+@onready var progress_bar = $ProgressBar
+@onready var health_label = $Label
+
+func _ready():
+	if \"Player\" in name:
+		progress_bar.max_value = 10  # Set this to 20 if \"Player\" is in the name
+		print(\"Player\")
+	else:
+		progress_bar.max_value = 10  # Set this to the max health of the player
+		print(\"else\")
+	print(name + \"s\")
+	self.add_to_group(name + \"s\")
+
+func update_health(health):
+	progress_bar.value = health
+	health_label.text = str(health)
+"
+
+[node name="healthbar" type="Node2D"]
+script = SubResource("GDScript_rlsei")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -64.0
+offset_right = 64.0
+offset_bottom = 33.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0

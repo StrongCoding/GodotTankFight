@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://l3ds5m225o3r"]
+
+[ext_resource type="Script" path="res://scripts/projectile.gd" id="1_26nel"]
+[ext_resource type="Texture2D" uid="uid://d0dt5s03dmy55" path="res://sprites/projectile-removebg.png" id="2_oc6yf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11785"]
+size = Vector2(14.75, 5)
+
+[node name="Projectile" type="Area2D"]
+script = ExtResource("1_26nel")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.048718, 0.0363475)
+texture = ExtResource("2_oc6yf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.375, 0)
+shape = SubResource("RectangleShape2D_11785")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_Projectile_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

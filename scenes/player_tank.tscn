@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmm021jw5lmhy"]
+
+[ext_resource type="Script" path="res://scripts/player_tank.gd" id="1_en2bu"]
+[ext_resource type="Texture2D" uid="uid://mrsui0rupjss" path="res://sprites/tankytank.png" id="1_rhlw1"]
+[ext_resource type="Texture2D" uid="uid://cfke1l1kdu8hj" path="res://sprites/tankturretsprite.png" id="3_q35p6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hg8b1"]
+size = Vector2(90, 45)
+
+[node name="PlayerTank" type="CharacterBody2D"]
+script = ExtResource("1_en2bu")
+
+[node name="tank" type="Sprite2D" parent="."]
+position = Vector2(-4, 0)
+rotation = 1.5708
+scale = Vector2(0.236, 0.236)
+texture = ExtResource("1_rhlw1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_hg8b1")
+
+[node name="Canon" type="Sprite2D" parent="."]
+position = Vector2(-0.999998, 0)
+scale = Vector2(0.233275, 0.233275)
+texture = ExtResource("3_q35p6")
+
+[node name="HealthBarCanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="HealthBarCanvasLayer"]
+offset_left = 16.0
+offset_top = 11.0
+offset_right = 100.0
+offset_bottom = 38.0
+max_value = 10.0
+value = 10.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="HealthBarCanvasLayer/HealthBar"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 2.0
+offset_right = 62.0
+offset_bottom = 25.0
+text = "10"
+horizontal_alignment = 1

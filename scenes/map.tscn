@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://23xyit0pl0x5"]
+
+[ext_resource type="Script" path="res://scripts/map.gd" id="1_8xk2a"]
+[ext_resource type="PackedScene" uid="uid://cmm021jw5lmhy" path="res://scenes/player_tank.tscn" id="2_s6e01"]
+[ext_resource type="PackedScene" uid="uid://bx7fpgymoq6pm" path="res://scenes/enemy_tank.tscn" id="3_ygsig"]
+
+[node name="Map" type="Node2D"]
+script = ExtResource("1_8xk2a")
+
+[node name="PlayerTank" parent="." instance=ExtResource("2_s6e01")]
+position = Vector2(123, 104)
+
+[node name="EnemyTank" parent="." instance=ExtResource("3_ygsig")]
+position = Vector2(1027, 544)
